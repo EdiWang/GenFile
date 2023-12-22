@@ -14,6 +14,35 @@ dotnet tool install -g GenFile
 
 ### As .NET Tool or Standalone Executable
 
+```powershell
+Description:
+  Generate test file at given size
+
+Usage:
+  GenFile.DotNetTool [options]
+
+Options:
+  -d, --directory <directory>  Output directory. [default: .]
+  -f, --filename <filename>    Output filename. [default: testfile.dat]
+  -s, --size <size>            Output file size (B, KB, MB, GB). e.g. 996MB [default: 251MB]
+  --version                    Show version information
+  -?, -h, --help               Show help and usage information
+```
+
+Example:
+
+```powershell
+PS C:\Users\Edi> genfile
+Generating 'testfile.dat' at '.' with size '251MB'...
+File generated.
+```
+
+```powershell
+PS C:\Users\Edi> genfile -s "1GB" -d "D:\" -f "test.dat"
+Generating 'test.dat' at 'D:\' with size '1GB'...
+File generated.
+```
+
 TODO
 
 ## 免责申明
