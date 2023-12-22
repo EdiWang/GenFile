@@ -1,0 +1,26 @@
+name: .NET Tool Build and Pack
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Build with dotnet
+      run: dotnet build "GenFile.DotNetTool.csproj" --configuration Release
+      working-directory: ./src
+    - name: Generate nuget package
+      run: dotnet pack "GenFile.DotNetTool.csproj" --configuration Release -o nupkg
+      working-directory: ./src
+    - name: Push nuget package
+      run: dotnet nuget push **\*.nupkg -s 'https://api.nuget.org/v3/index.json' -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
+      working-directory: ./src
