@@ -43,8 +43,6 @@ Generating 'test.dat' at 'D:\' with size '1GB'...
 File generated.
 ```
 
-TODO
-
 ## 免责申明
 
 GenFile 及其配套组件均为免费开源的产品，仅用于学习交流，并且不直接向中国提供服务，中国用户请于下载后立即删除。
